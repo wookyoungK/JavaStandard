@@ -1,12 +1,11 @@
 package ch5;
-
 class ArrayEx11 {
 	public static void main(String[] args) {
 		int[] numArr  = new int[10];
 		int[] counter = new int[10];
 
 		for (int i=0; i < numArr.length ; i++ ) {
-			numArr[i] = (int)(Math.random() * 10); // 0~9ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½è¿­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			numArr[i] = (int)(Math.random() * 10); // 0~9ÀÇ ÀÓÀÇÀÇ ¼ö¸¦ ¹è¿­¿¡ ÀúÀå
 			System.out.print(numArr[i]);
 		}
 		System.out.println();
@@ -16,7 +15,7 @@ class ArrayEx11 {
 		}
 
 		for (int i=0; i < numArr.length ; i++ ) {
-			System.out.println( i +"ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ :"+ counter[i]);
+			System.out.println( i +"ÀÇ °³¼ö :"+ counter[i]);
 		}
-	} // mainï¿½ï¿½ ï¿½ï¿½
+	} // mainÀÇ ³¡
 }

@@ -1,23 +1,22 @@
 package ch5;
-
-class ArrayEx4 {
+class ArrayEx04 {
 	public static void main(String[] args) {
 		char[] abc = { 'A', 'B', 'C', 'D'};
 		char[] num = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
 		System.out.println(abc);
 		System.out.println(num);
 
-		// ï¿½è¿­ abcï¿½ï¿½ numï¿½ï¿½ ï¿½Ù¿ï¿½ï¿½ï¿½ ï¿½Ï³ï¿½ï¿½ï¿½ ï¿½è¿­(result)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½.
+		// ¹è¿­ abc¿Í numÀ» ºÙ¿©¼­ ÇÏ³ªÀÇ ¹è¿­(result)·Î ¸¸µç´Ù.
 		char[] result = new char[abc.length+num.length];
 		System.arraycopy(abc, 0, result, 0, abc.length);
 		System.arraycopy(num, 0, result, abc.length, num.length);
 		System.out.println(result);
 
-		// ï¿½è¿­ abcï¿½ï¿½ ï¿½è¿­ numï¿½ï¿½ Ã¹ ï¿½ï¿½Â° ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½è¿­ abcï¿½ï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½Å­ ï¿½ï¿½ï¿½ï¿½
+		// ¹è¿­ abcÀ» ¹è¿­ numÀÇ Ã¹ ¹øÂ° À§Ä¡ºÎÅÍ ¹è¿­ abcÀÇ ±æÀÌ¸¸Å­ º¹»ç
 		System.arraycopy(abc, 0, num, 0, abc.length);	
 		System.out.println(num);
 
-	     // numberï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½6 ï¿½ï¿½Ä¡ï¿½ï¿½ 3ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	     // numberÀÇ ÀÎµ¦½º6 À§Ä¡¿¡ 3°³¸¦ º¹»ç
 		System.arraycopy(abc, 0, num, 6, 3);
 		System.out.println(num);
 	}

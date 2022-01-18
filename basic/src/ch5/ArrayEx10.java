@@ -1,5 +1,4 @@
 package ch5;
-
 class ArrayEx10 {
 	public static void main(String[] args) {
 		int[] numArr = new int[10];
@@ -10,22 +9,22 @@ class ArrayEx10 {
 		System.out.println();
 
 		for (int i=0; i < numArr.length-1 ; i++ ) {
-			boolean changed = false;	// ï¿½Ú¸ï¿½ï¿½Ù²ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½ß´ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¼Å©ï¿½Ñ´ï¿½.
+			boolean changed = false;	// ÀÚ¸®¹Ù²ÞÀÌ ¹ß»ýÇß´ÂÁö¸¦ Ã¼Å©ÇÑ´Ù.
 
 			for (int j=0; j < numArr.length-1-i ;j++) {
-				if(numArr[j] > numArr[j+1]) { // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ù²Û´ï¿½.
+				if(numArr[j] > numArr[j+1]) { // ¿·ÀÇ °ªÀÌ ÀÛÀ¸¸é ¼­·Î ¹Ù²Û´Ù.
 					int temp = numArr[j];
 					numArr[j] = numArr[j+1];
 					numArr[j+1] = temp;
-					changed = true;	// ï¿½Ú¸ï¿½ï¿½Ù²ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ changedï¿½ï¿½ trueï¿½ï¿½.
+					changed = true;	// ÀÚ¸®¹Ù²ÞÀÌ ¹ß»ýÇßÀ¸´Ï changed¸¦ true·Î.
 				}
 			} // end for j
 
-			if (!changed) break;	// ï¿½Ú¸ï¿½ï¿½Ù²ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ýºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½î³­ï¿½ï¿½.
+			if (!changed) break;	// ÀÚ¸®¹Ù²ÞÀÌ ¾øÀ¸¸é ¹Ýº¹¹®À» ¹þ¾î³­´Ù.
 
 			for(int k=0; k<numArr.length;k++)
-				System.out.print(numArr[k]); // ï¿½ï¿½ï¿½Äµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+				System.out.print(numArr[k]); // Á¤·ÄµÈ °á°ú¸¦ Ãâ·ÂÇÑ´Ù.
 			System.out.println();
 		} // end for i
-	} // mainï¿½ï¿½ ï¿½ï¿½
+	} // mainÀÇ ³¡
 }

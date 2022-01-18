@@ -1,10 +1,11 @@
 package ch5;
 
-import java.util.*;  // Arrays.toString()ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 
-class ArrayEx9 {
+import java.util.*;  // Arrays.toString()À» »ç¿ëÇÏ±â À§ÇØ Ãß°¡
+
+class ArrayEx09 {
 	public static void main(String[] args) {
-		int[] code = { -4, -1, 3, 6, 11 };  // ï¿½Ò¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½è¿­
+		int[] code = { -4, -1, 3, 6, 11 };  // ºÒ¿¬¼ÓÀûÀÎ °ªµé·Î ±¸¼ºµÈ ¹è¿­
 		int[] arr = new int[10];
 
 		for (int i=0; i < arr.length ; i++ ) {
@@ -13,5 +14,5 @@ class ArrayEx9 {
 		}
 
 		System.out.println(Arrays.toString(arr));
-	} // mainï¿½ï¿½ ï¿½ï¿½
+	} // mainÀÇ ³¡
 }
