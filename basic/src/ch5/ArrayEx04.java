@@ -9,10 +9,19 @@ class ArrayEx04 {
 		// 배열 abc와 num을 붙여서 하나의 배열(result)로 만든다.
 		char[] result = new char[abc.length+num.length];
 		System.arraycopy(abc, 0, result, 0, abc.length);
+		System.out.println(result);
+		//배열의길이는 적으면안된다.
+		
+		
+		System.out.println(result.length);
+		
+		//해석num[0]에서 result[abc.length]으로 num.length개의 데이터를 복
 		System.arraycopy(num, 0, result, abc.length, num.length);
 		System.out.println(result);
+		System.out.println(result.length);
 
 		// 배열 abc을 배열 num의 첫 번째 위치부터 배열 abc의 길이만큼 복사
+		//덮어써진다.
 		System.arraycopy(abc, 0, num, 0, abc.length);	
 		System.out.println(num);
 
