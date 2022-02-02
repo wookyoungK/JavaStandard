@@ -19,9 +19,23 @@ class ArrayEx07 {
 			System.out.println(tmp);
 			numArr[n] = tmp;
 			System.out.println(numArr[n]);
+			
 		}
+		/*
+		 * 심플하게 
+		for(int i=0; i<numArr.length; i++) {
+			int a = (int)(Math.random() * 10);
+			int temp = numArr[i];
+			numArr[i] = numArr[a];
+			numArr[a] = temp;
+			
+		}
+		*/
 
 		for (int i=0; i < numArr.length ; i++ )
-			System.out.print(numArr[i]);		
+			System.out.print(numArr[i]);
+		
+		
+		
 	} // main의 끝
 }
