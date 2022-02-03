@@ -1,4 +1,5 @@
 package ch5;
+// 버블정렬 알고리즘
 class ArrayEx10 {
 	public static void main(String[] args) {
 		int[] numArr = new int[10];
