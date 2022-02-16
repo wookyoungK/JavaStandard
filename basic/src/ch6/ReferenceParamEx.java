@@ -12,8 +12,9 @@ class ReferenceParamEx {
 		System.out.println("main() : x = " + d.x);
 
 	}
-
-	static void change(Data d) { // 참조형 매개변수
+	// 값이 저장된 주소 값을 넘겨줌 
+	// 일반 변수로 매개변수를 바꾸면 error 
+	static void change(Data d) { // 참조형 매개변수 
 		d.x = 1000;
 		System.out.println("change() : x = " + d.x);
 	}
