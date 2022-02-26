@@ -39,7 +39,7 @@ class Point {
 	}
 }
 
-class Circle extends Shape {
+class Circle extends Shape { // Shape 상속 ,Pointer 포함 
 	Point center;	// 원의 원점좌표
 	int r;			// 반지름
 
@@ -57,7 +57,7 @@ class Circle extends Shape {
 	}
 }
 
-class Triangle extends Shape {
+class Triangle extends Shape { // Shape 상속 ,Pointer 포함 
 	Point[] p = new Point[3];
 
 	Triangle(Point[] p) {
