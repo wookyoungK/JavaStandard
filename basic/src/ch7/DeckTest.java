@@ -2,8 +2,10 @@ package ch7;
 class DeckTest {
 	public static void main(String args[]) {
 		Deck d = new Deck();	// 카드 한 벌(Deck)을 만든다.
-		Card c = d.pick(0);	   	// 섞기 전에 제일 위의 카드를 뽑는다.
+		Card c = d.pick();	   	// 섞기 전에 제일 위의 카드를 뽑는다.
+		Card e = d.pick(0);	   	// 섞기 전에 제일 위의 카드를 뽑는다.
 		System.out.println(c); 	// System.out.println(c.toString());과 같다.
+		System.out.println(e); 	// System.out.println(e.toString());과 같다.
 
 		d.shuffle();			// 카드를 섞는다.
 		c = d.pick(0);		   	// 섞은 후에 제일 위의 카드를 뽑는다.
@@ -25,11 +27,13 @@ class Deck {
 	}
 
 	Card pick(int index) {	// 지정된 위치(index)에 있는 카드 하나를 꺼내서 반환
+		System.out.println("####"+index);
 		return cardArr[index];
 	}
 
 	Card pick() {			// Deck에서 카드 하나를 선택한다.
 		int index = (int)(Math.random() * CARD_NUM);
+		System.out.println("@@@@"+index);
 		return pick(index);
 	}
 

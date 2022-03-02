@@ -6,11 +6,11 @@ class SuperTest2 {
 	}
 }
 class Parent2 {
-	int x=10;
+	int x=10;  //같은이름의 매개변수
 }
 
 class Child2 extends Parent2 {
-	int x=20;
+	int x=20; //같은이름의 지역변수 
 
 	void method() {
 		System.out.println("x=" + x);

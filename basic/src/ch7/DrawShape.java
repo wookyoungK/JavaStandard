@@ -48,8 +48,8 @@ class Circle extends Shape { // Shape 상속 ,Pointer 포함
 	}
 
 	Circle(Point center, int r) {
-		this.center = center;
 		this.r = r;
+		this.center = center;
 	}
 
 	void draw() { // 원을 그리는 대신에 원의 정보를 출력하도록 했다.
