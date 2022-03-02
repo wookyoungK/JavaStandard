@@ -1,3 +1,4 @@
+// 자바는 복잡함때문에 불편하더라도 단일상속만허용한다.
 package ch7;
 class Tv2 {
 	boolean power; 	// 전원상태(on/off)
@@ -8,6 +9,7 @@ class Tv2 {
 	void channelDown() {	--channel; 		}
 }
 
+//같은 내용의 메서드가 존재할 때는?? 
 class VCR {
 	boolean power; 	// 전원상태(on/off)
    int counter = 0;
