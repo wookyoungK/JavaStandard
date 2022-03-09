@@ -4,9 +4,11 @@ class DeckTest {
 		Deck d = new Deck();	// 카드 한 벌(Deck)을 만든다.
 		Card c = d.pick();	   	// 섞기 전에 제일 위의 카드를 뽑는다.
 		Card e = d.pick(0);	   	// 섞기 전에 제일 위의 카드를 뽑는다.
-		System.out.println(c); 	// System.out.println(c.toString());과 같다.
-		System.out.println(e); 	// System.out.println(e.toString());과 같다.
+		System.out.println(c+"cc"); 	// System.out.println(c.toString());과 같다.
+		System.out.println(e+"ee"); 	// System.out.println(e.toString());과 같다.
 
+		c = d.pick(0);		   	// 섞은 후에 제일 위의 카드를 뽑는다.
+		System.out.println(c);
 		d.shuffle();			// 카드를 섞는다.
 		c = d.pick(0);		   	// 섞은 후에 제일 위의 카드를 뽑는다.
 		System.out.println(c);
@@ -20,7 +22,7 @@ class Deck {
 
 	Deck () {	// Deck의 카드를 초기화한다.
 		int i=0;
-
+		System.out.println("Deck초기화");
 		for(int k=Card.KIND_MAX; k > 0; k--)
 			for(int n=0; n < Card.NUM_MAX ; n++)
 				cardArr[i++] = new Card(k, n+1);
@@ -38,6 +40,7 @@ class Deck {
 	}
 
 	void shuffle() { // 카드의 순서를 섞는다.
+//		System.out.println("shuffle초기화");
 		for(int i=0; i < cardArr.length; i++) {
 			int r = (int)(Math.random() * CARD_NUM);
 
@@ -63,11 +66,14 @@ class Card {
 
 	Card() {
 		this(SPADE, 1);
+		System.out.println("초기생성자1");
 	}
 
 	Card(int kind, int number) {
 		this.kind = kind;
 		this.number = number;
+		
+		
 	}
 
 	public String toString() {
