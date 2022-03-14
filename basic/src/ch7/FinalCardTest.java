@@ -5,6 +5,7 @@ class Card2 {
 	static int width  = 100;	
 	static int height = 250;
 
+	// 인스턴스를 생성할 때 final이 붙은 멤버변수를 초기화하기 위해 필요한 값을 생성자의 매개변수로부터 제공받는다.
 	Card2(String kind, int num) {	
 		KIND = kind;
 		NUMBER = num;
