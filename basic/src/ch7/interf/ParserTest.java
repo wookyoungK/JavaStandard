@@ -1,4 +1,5 @@
 package ch7.interf;
+
 interface Parseable {
 	// 구문 분석작업을 수행한다.
 	public abstract void parse(String fileName);
@@ -7,7 +8,7 @@ interface Parseable {
 class ParserManager {
 	// 리턴타입이 Parseable인터페이스이다.
 	public static Parseable getParser(String type) {
-		if(type.equals("XML")) {
+		if (type.equals("XML")) {
 			return new XMLParser();
 		} else {
 			Parseable p = new HTMLParser();
@@ -33,9 +34,16 @@ class HTMLParser implements Parseable {
 
 class ParserTest {
 	public static void main(String args[]) {
+
 		Parseable parser = ParserManager.getParser("XML");
+		// Parseable parser = new XMLParser();
 		parser.parse("document.xml");
 		parser = ParserManager.getParser("HTML");
-		parser.parse("document2.html");
+		// Parseable parser = new HTMLParser(); parser.parse("document2.html");
 	}
+	// 아래내용으로 바꿀 수 있다.
+	/*
+	 * Parseable parser = new XMLParser(); parser.parse("document.xml"); Parseable
+	 * parser = new HTMLParser(); parser.parse("document2.html");
+	 */
 }
