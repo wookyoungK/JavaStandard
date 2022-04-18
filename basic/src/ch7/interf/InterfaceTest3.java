@@ -1,5 +1,8 @@
 package ch7.interf;
 
+/*
+ * 제3의 클래스를 통해서 인터페이스를 제공받는다.
+*/
 class InterfaceTest3 {
 	public static void main(String[] args) {
 		A3 a = new A3();
@@ -9,7 +12,7 @@ class InterfaceTest3 {
 
  class A3 {
     void methodA() {
-          I3 i = InstanceManager.getInstance();
+          I3 i = InstanceManager.getInstance(); // 해당 메서드를 통해서 재공 받는다.
 		  i.methodB();
 		  System.out.println(i.toString()); // i로 Object클래스의 메서드 호출가능
      }
