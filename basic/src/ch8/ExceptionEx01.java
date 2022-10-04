@@ -5,7 +5,7 @@ class ExceptionEx01 {
 		try  {
 			try	{	} catch (Exception e)	{ }
 		} catch (Exception e)	{
-			try	{	} catch (Exception e) { }	// 에러. 변수 e가 중복 선언되었다.
+//			try	{	} catch (Exception e) { }	// 에러. 변수 e가 중복 선언되었다.
 		} // try-catch의 끝
 
 		try  {
