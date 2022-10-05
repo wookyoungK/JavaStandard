@@ -8,6 +8,7 @@ class ArrayListEx2 {
 		int length = source.length(); 
 
 		List list = new ArrayList(length/LIMIT + 10); // 크기를 약간 여유 있게 잡는다.
+//		ArrayList list = new ArrayList(length/LIMIT + 10);
 
 		for(int i=0; i < length; i+=LIMIT) { 
 			if(i+LIMIT < length ) 

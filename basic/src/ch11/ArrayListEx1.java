@@ -1,6 +1,15 @@
 package ch11;
 import java.util.*;
 
+
+/*
+	List : 순서가 있는 데이터의 집합, 데이터의 중복을 허용
+	
+		ArrayList : 컬렉션 프레임웍에서 가장 많이 사용되는 컬렉션 클래스
+			Object배열을 이용해서 데이터를 순차적으로 저장
+			배열에 더 이상 저장할 공간이 없으면 보다 큰 새로운 배열을 생성해서 기존의 배열에 저장된 내용을 새로운 배열로 복사후 저장
+		
+* */
 class ArrayListEx1{
 	public static void main(String[] args) {
 		ArrayList list1 = new ArrayList(10);
