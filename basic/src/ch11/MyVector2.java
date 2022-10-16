@@ -14,6 +14,7 @@ public class MyVector2 extends MyVector implements Iterator {
 		this(10);		
 	}
 
+	//toString을 직접 호출하지 않아도 어떤 객체를 System.out.print로 호출하면 자동으로 toString이 호출되도록 약속되어 있다.
 	public String toString() {
 		String tmp = "";
 		Iterator it = iterator();
@@ -41,6 +42,7 @@ public class MyVector2 extends MyVector implements Iterator {
     public Object next(){
 		System.out.println("next 호출");
 		Object next = get(cursor);
+		System.out.println("get cursor : " + next);
 		lastRet = cursor++;
 		return next;
     }

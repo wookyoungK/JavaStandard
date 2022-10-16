@@ -27,6 +27,7 @@ public class MyVector implements List {
 
 	public boolean add(Object obj) {
 		// 새로운 객체를 저장하기 전에 저장할 공간을 확보한다.
+		System.out.println("add : "+obj);
 		ensureCapacity(size+1);
 		data[size++] = obj; 
 		return true;
@@ -36,6 +37,7 @@ public class MyVector implements List {
 		if(index < 0 || index >= size) 
 			throw new IndexOutOfBoundsException("범위를 벗어났습니다.");
 
+		System.out.println("MyVector size = "+size);
 		return data[index];
 	}
 
@@ -46,6 +48,7 @@ public class MyVector implements List {
 			throw new IndexOutOfBoundsException("범위를 벗어났습니다.");
 
 		oldObj = data[index];
+		System.out.println("remove oldObj : "+oldObj);
 
 		// 삭제하고자 하는 객체가 마지막 객체가 아니라면, 배열복사를 통해 빈자리를 채워줘야 한다.
 		if(index != size-1) {
