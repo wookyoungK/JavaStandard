@@ -42,6 +42,13 @@ public class TestVector implements List {
         return true;
     }
 
+    public Object get(int index){
+        if(index < 0 || index >= size)
+            throw new IndexOutOfBoundsException("범위를 벗어났습니다.");
+
+        return data[index];
+    }
+
 
     public int size() {
         return size;
@@ -60,7 +67,9 @@ public class TestVector implements List {
     }
 
     public Object[] toArray() {
-        return new Object[0];
+        Object[] result = new Object[size];
+        System.arraycopy(data, 0, result,0,size);
+        return result;
     }
 
     public Object[] toArray(Object[] a) {
@@ -71,9 +80,34 @@ public class TestVector implements List {
 //        return false;
 //    }
 
-    public boolean remove(Object o) {
+    public boolean remove(Object obj) {
+        for(int i=0; i< size; i++) {
+            if(obj.equals(data[i])) {
+                remove(i);
+                return true;
+            }
+        }
         return false;
     }
+//
+//    public Object remove(int index) {
+//        Object oldObj = null;
+//
+//        if(index < 0 || index >= size)
+//            throw new IndexOutOfBoundsException("범위를 벗어났습니다.");
+//
+//        oldObj = data[index];
+//
+//        // 삭제하고자 하는 객체가 마지막 객체가 아니라면, 배열복사를 통해 빈자리를 채워줘야 한다.
+//        if(index != size-1) {
+//            System.arraycopy(data, index+1, data, index, size-index-1);
+//        }
+//
+//        // 마지막 데이터를 null로 한다. 배열은 0 부터 시작하므로 마지막 요소는 index가 size-1이다.
+//        data[size-1] = null;
+//        size--;
+//        return oldObj;
+//    }
 
     public boolean containsAll(Collection c) {
         return false;
@@ -96,11 +130,9 @@ public class TestVector implements List {
     }
 
     public void clear() {
-
-    }
-
-    public Object get(int index) {
-        return null;
+        for(int i =0; i<size; i++)
+            data[i] = null;
+        size = 0;
     }
 
     public Object set(int index, Object element) {

@@ -44,6 +44,7 @@ public class MyVector2 extends MyVector implements Iterator {
 		Object next = get(cursor);
 		System.out.println("get cursor : " + next);
 		lastRet = cursor++;
+		System.out.println("lastRet : "+lastRet);
 		return next;
     }
 	
