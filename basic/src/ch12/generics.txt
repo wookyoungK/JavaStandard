@@ -1,61 +1,78 @@
-지네릭스는 다양한 타입의 객체를 다루는 메서드나 컬렉션 클래스에 컴파일 시의 타입체크를 해주는 기능이다.
-    1. 타입 안정성을 제공한다.
-    2. 타입체크와 형변환을 생략할 수 있으므로 코드가 간결해 진다.
-    즉, 다룰 객체의 타입을 미리 명시해줌으로써 번거로운 형변환을 줄여준다는 얘기
+* 지네릭스는 다양한 타입의 객체를 다루는 메서드나 컬렉션 클래스에 컴파일 시의 타입체크를 해주는 기능이다.
+        1. 타입 안정성을 제공한다.
+        2. 타입체크와 형변환을 생략할 수 있으므로 코드가 간결해 진다.
+        즉, 다룰 객체의 타입을 미리 명시해줌으로써 번거로운 형변환을 줄여준다는 얘기
 
-class Box {
-    Object item
-    ...
-}
-
-->
-class Box<T>{ // 지네릭 타입 T를 선언
-    T item;
-    ...
-}
-
-T를 '타입 변수'라고 하며, 타입 변수는 T가 아닌 다른 것을 사용해도 된다.
-ArrayList<E>  E: Element
-Map<K,V> K:key, V:value
-상황에 맞게 의미있는 문자를 선택해서 사용하는 것이 좋다.
-이들은 기호의 종류만 다를 뿐 임의의 참조형 타입을 의미한다는 것은 모두같다.
-
-
-지네릭 클래스가 된 Box클래스의 객체를 생성할 때는 다음과 같이 참조변수와 생성자에 타입 T대신에 사용될 실제 타입을 지정
-Box<String> b =new Box<String>(); // 타입 T 대신, 실제 타입을 지정
-b.setItem("ABC")
-String item = b.getItem();
-
-지네릭 도입 이전의 호환을 위해 예전의 방식으로 객체를 생성하는 것도 허용, 하지만 경고 발생
-Box b = new Box(); // T는 Object로 간주
-
-제네릭스의 제한
-class Box<T>{
-    static T item; // 에러 : static멤버는 인스턴스변수를 참조할 수 없다.
-}
-
-class Box<T>{
-    T[] itemArr; // T타입의 배열을 위한 참조변수 가능
-
-    T[] toArray() {
-        T[] tmp Arr = new T[itemArr.length]; //에러 지네릭 배열 생성불가
+    class Box {
+        Object item
+        ...
     }
-}
-new 연산자는 컴파일 시점에 타입T가 뭔지 정확하게 알 수 없다.
-꼭 생성이 필요할 때는  Reflection API의 newInstance() 동적으로 객체를 생성하는 메서드로 생성하거나, Object배열을 생성해서 복사한 다음 T[]로 형변환하는 방법 등을 사용한다.
 
-지네릭 클래스 객체 생성과 사용
+    ->
+    class Box<T>{ // 지네릭 타입 T를 선언
+        T item;
+        ...
+    }
 
-Box<T>의 객체를 생성할 때는 참조변수와 생성자에 대입된 타입이 일치해야 한다.
-Box<Apple> appleBox = new Box<Apple>(); //OK
-Box<Apple> appleBox = new Box<Grape>(); //에러
+    T를 '타입 변수'라고 하며, 타입 변수는 T가 아닌 다른 것을 사용해도 된다.
+    ArrayList<E>  E: Element
+    Map<K,V> K:key, V:value
+    상황에 맞게 의미있는 문자를 선택해서 사용하는 것이 좋다.
+    이들은 기호의 종류만 다를 뿐 임의의 참조형 타입을 의미한다는 것은 모두같다.
 
-두 타입이 상속관계에 있어도 마찬가지다
-Box<Fruit> appleBox = new Box<Apple>(); //에러
-단, 두 지네릭 클래스의 타입이 상속관계에 있고, 대입된 타입이 같은 것은 괜찮다.
-Box<Apple> FruitBox = new Box<Apple>(); //OK, 다형성
-이 경우 자손들의 메서드의 매개변수가 될 수 있다.
-FruitBox.add(new Fruit());
-FruitBox.add(new Apple());
+
+    지네릭 클래스가 된 Box클래스의 객체를 생성할 때는 다음과 같이 참조변수와 생성자에 타입 T대신에 사용될 실제 타입을 지정
+    Box<String> b =new Box<String>(); // 타입 T 대신, 실제 타입을 지정
+    b.setItem("ABC")
+    String item = b.getItem();
+
+    지네릭 도입 이전의 호환을 위해 예전의 방식으로 객체를 생성하는 것도 허용, 하지만 경고 발생
+    Box b = new Box(); // T는 Object로 간주
+
+* 제네릭스의 제한
+    class Box<T>{
+        static T item; // 에러 : static멤버는 인스턴스변수를 참조할 수 없다.
+    }
+
+    class Box<T>{
+        T[] itemArr; // T타입의 배열을 위한 참조변수 가능
+
+        T[] toArray() {
+            T[] tmp Arr = new T[itemArr.length]; //에러 지네릭 배열 생성불가
+        }
+    }
+    new 연산자는 컴파일 시점에 타입T가 뭔지 정확하게 알 수 없다.
+    꼭 생성이 필요할 때는  Reflection API의 newInstance() 동적으로 객체를 생성하는 메서드로 생성하거나, Object배열을 생성해서 복사한 다음 T[]로 형변환하는 방법 등을 사용한다.
+
+* 지네릭 클래스 객체 생성과 사용
+
+    Box<T>의 객체를 생성할 때는 참조변수와 생성자에 대입된 타입이 일치해야 한다.
+    Box<Apple> appleBox = new Box<Apple>(); //OK
+    Box<Apple> appleBox = new Box<Grape>(); //에러
+
+    두 타입이 상속관계에 있어도 마찬가지다
+    Box<Fruit> appleBox = new Box<Apple>(); //에러
+    단, 두 지네릭 클래스의 타입이 상속관계에 있고, 대입된 타입이 같은 것은 괜찮다.
+    Box<Apple> FruitBox = new Box<Apple>(); //OK, 다형성
+    이 경우 자손들의 메서드의 매개변수가 될 수 있다.
+    FruitBox.add(new Fruit());
+    FruitBox.add(new Apple());
+
+* 지네릭 메서드
+    메서드의 선언부에 지네릭 타입이 선언된 메서드를 지네릭 메서드라 한다.
+    앞서 살펴본 것처럼, Collections.sort()가 바로 지네릭 메서드이며, 지네릭 타입의 선언 위치는
+    반환 타입 바로 앞이다.
+    static <T> void sort(List<T> list, Comparator<? super T> c)
+
+    지네릭 클래스에 정의된 타입의 매개변수와 지네릭 메서드에 정의된 타입 매개변수는 전혀 별개의 것이다.
+    -> class FruitBox<T>{
+            위아래T는 다른것
+        static <T> void sort(List<T> list, Comparator<? super T> c)
+                        양옆의 T는 같은것(지역변수를 선언한 것과 같다)
+    }
+    static멤버에는 타입 매개변수를 하용할 수 없지만 이처럼 메서드에 지네틱 타입을 선언하고 사용하는 것은 가능하다.
+
+
+
 
 
