@@ -72,7 +72,17 @@
     }
     static멤버에는 타입 매개변수를 하용할 수 없지만 이처럼 메서드에 지네틱 타입을 선언하고 사용하는 것은 가능하다.
 
+    지네릭 메서드로 변환 예시
+    public static void printAll( ArrayList<? extends Product> list, ArrayList<? extends Product> list2 ){..}
 
+    public static < T extends Product >void printAll( ArrayList<T> list, ArrayList<T> list2 ){..}
 
+* 지네릭 타입의, 형변환
+    지네릭 타입과 넌지네릭 타입간의 형변환은 가능하다 -> 경고발생
+    Box box = null;
+    Box<Object> objBox = null;
+    box = (Box)objBox;
+    objBox = (Box<Object>)box;
 
+    하지만 대입된 다른 지네릭 타입 간에는 형변환이 불가능
 
