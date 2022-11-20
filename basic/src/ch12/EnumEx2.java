@@ -28,6 +28,8 @@ enum Direction {
 
 		if(num < 0) num +=4; // num이 음수일 때는 시계반대 방향으로 회전
 
+		System.out.println("value : "+value);
+		System.out.println("num : "+num);
 		return DIR_ARR[(value-1+num) % 4];
 	}
 
