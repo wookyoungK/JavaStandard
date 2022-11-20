@@ -1,0 +1,20 @@
+* 열거형의 정의 사용
+    enum 열거형이름 { 상수명1, 상수명,. ...}
+    열거형 상수간의 비교는 '=='를 사용할 수 있다. equals()가 아닌 '=='로 비교가 가능하다는 것은 그 만큼 빠른 성능을 제공
+    비교연산자는 compareTo()사용 가능
+    switch문에서는 case문에 열거형의 이름은 적지 않고 상수의 이름만 적어야한다.
+
+    enum Direction { EAST(1), SOUTH(5);} 열거형의 상수의 값이 불연속적인 경우에는 상수 이름 옆에 원하는 값을() 함께 적어준다.
+    열거형의 생성자는 암묵적으로 private 이기 때문에 생성할 수 없다.
+
+    열거형 상수에 여러값 ex) EAST(1, ">") 을 지정할 수 있지만 인스턴스 변수와 생성자를 같이 추가해주어야한다.
+     private final int value;
+     private final String symbol;
+
+     Direction(int value, String symbol){
+        this.value = value;
+        this.symbol = symbol;
+     }
+
+     public int getValue()  { return value; }
+     public String getSymbol()  { return symbol; }
