@@ -10,3 +10,20 @@
         2. 입력스트림, 출력스트림 필요
         3. FIFO 구조
 
+* 보조 스트림
+    스트림의 기능을 보완하기 위한 보조스트림이다.
+    보조스트림은 실제 데이터를 주고받는 스트림이 아니기 때문에 데이터를 입출력할 수 있는 기능은 없지만, 스트림의 기능을 향상시키거나 새로운 기능을 추가할 수 있다.
+    그래서 스트림을 먼저 생성한 다음에 보조스트림을 생성해야한다. 단독 x
+        ex) .txt파일을 읽기 위해 FileInputStream을 사용할 때, 입력 성능을 향상시키기 위해 버퍼를 사용하는 버퍼스트림 BufferedInputStream
+            // 기반 스트림 생성
+            FileInputStream fis = new FileInputStream("test.txt");
+
+            // 기반스트림을 이용해서 보조스트림 생성
+            BufferedInputStream bis = new BufferedInputStream(fis);
+
+            bis.read() // 보조스트림인 BufferedInputStream으로부터 데이터를 읽는다
+
+    보조스트림인 BufferedInputStream이 입력기능을 수행하는 것이 아니라 실제 입력기능은 BufferedInputStream과 연결된 FileInputStream이
+    수행하고, 보조스트림인 BufferedInputStream은 버퍼만을 제공한다.
+    * 결국 모든 보조스트림은 InputStream, OutputStream의 자손들이다.
+
