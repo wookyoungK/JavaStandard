@@ -44,4 +44,12 @@
    프로그램이 종료될 때, 사용하고 닫지 않은 스트림을 JVM이 자동적으로 닫아 주기는 하지만, 스트림을 사용해서 모든 작업을 마치고 난 후에는 close()를 호출해서
    반드시 닫아 주어야한다.
 
+* 파일 입출력 스트림
+   FileInputStream, FileOutputStream
+   문자기반의 스트림 : FileReader, FileWriter -> 텍스트파일 다루는 경우
+
+
+
+
+
 
