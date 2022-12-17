@@ -48,6 +48,35 @@
    FileInputStream, FileOutputStream
    문자기반의 스트림 : FileReader, FileWriter -> 텍스트파일 다루는 경우
 
+* 바이트기반의 보조 스트림
+
+   FilterInputStream/FilterOutputStream
+
+       FilterInputStream, FilterOutputStream은 InputStream, OutputStream의 자손이면서 모든 보조스트림의 조상이다.
+       즉, 바이트기반의 모든 보조 스트림은 InputStream/OutputStream의 상속을 FilterInputStream/FilterOutputStream이 받아서 오버라딩되고
+       FilterInputStream/FilterOutputStream을 상속받아서 기반스트림에 보조기능을 추가한 보조스트림을 사용하는 것이다.
+
+
+       FilterInputStream의 자손 : BufferedInputStream, DataInputStream, PushbackInputStream 등
+       FilterOutputStream의 자손 : BufferedOutputStream, DataOutputStream, PrintStream 등
+
+       보조스트림은 자체적으로 입출력을 수행할 수 없끼 때문에 기반스트림을 필요로 한다.
+
+   BufferedInputStream/BufferedOutputStream
+
+       BufferedInputStream/BufferedOutputStream은 스트림의 입출력 효율을 높이기 위해 버퍼를 사용하는 보조스트림이다.
+       한 바이트씩 입출력을하는 것 보다는 버퍼를 이용해서 한 번에 여러 바이트를 입출력하는 것이 빠르기 때문에 대부분의 입출력 작업에 사용된다.
+        ->  버퍼의 크기를 지정해주지 않으면 기본적으로 8192byte 크기의 버퍼를 갖게 된다. 외부의 입력소르로 부터 읽는 것보다 내부의 버퍼로 부터 일근 것이 훨씬
+            빠르기 때문에 지정해주는 것이 작업 효율에 좋다
+
+       버퍼가 가득 찼을 때만 출력소스에 출력을 하기 때문에, 마지막 출력부분이 출력소스에 쓰이지 못하고 버퍼에 남아있는 채로 종료될 수 있다.
+       그래서 close()를 호출해서 마지막에 버퍼에 있는 모든 내용이 출력소스에 출력되도록 해야 한다.
+       기반스트림의 close()를 호출해서 닫아도 남아있던 모든 내용이 출력되지 않는다.
+       보조스트림을 사용한 경우에는 기반스트림의 close()를 호출할 필요 없이 보조스트림의 close()를 호출하기만 하면 된다.
+        -> 보조스트림의 조상인 FilterInputStream/FilterOutputStream가 결국 기반스트림의 close()를 호출 하고
+           보조스트림은 조상스트림의 close()를 오버라이딩없이 그대로 상속받아 사용한다.
+
+
 
 
 
