@@ -86,6 +86,13 @@
       문자기반 스트림, 즉 Reader/Writer 그리고 그 자손들은 여러 종류의 인코딩과 자바에서 사용하는 유니코드(UTF-16)간의 변환을 자동적으로 처리해준다.
       Reader는 특정 인코딩을 읽어서 유니코드로 변환하고 Writer는 유니코드를 특정 인코딩으로 변환하여 저장한다.
 
+   StringReader/StringWriter
+
+      StringReader/StringWriter는 CharArrayReader/CharArrayWriter와 같이 입출력 대상이 메모리인 스트림이다.
+      StringWriter에 출력되는 데이터는 내부의 StringBuffer에 저장되며
+
+      StringBuffer getBuffer() : StringWriter에 출력한 데이터가 저장된 StringBuffer를 반환한다.
+      String toString() : StringWriter에 출력된 (StringBuffer에 저장된) 문자열을 반환한다
 
 
 
